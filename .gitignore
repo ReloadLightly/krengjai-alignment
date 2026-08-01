@@ -1,21 +1,11 @@
-# --- Python & Venv ---
 __pycache__/
 *.py[cod]
-venv/
-env/
-.env
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+outputs/
+checkpoints/
+wandb/
 
-# --- AI Data & Models (Keep these local only!) ---
-data/
-models/
-*.bin
-*.pt
-*.safetensors
-*.jsonl
-
-# --- OS Junk ---
-.DS_Store
-Thumbs.db
-
-# --- IDE Settings ---
-.vscode/

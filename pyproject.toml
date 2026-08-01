@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "krengjai-alignment"
+version = "0.1.0"
+description = "Evaluation-first Thai character alignment research with sovereign language models"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+krengjai-validate = "krengjai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
