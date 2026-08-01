@@ -3,9 +3,24 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .venv/
+venv/
+env/
+.env
 build/
 dist/
 outputs/
 checkpoints/
 wandb/
 
+# Local model artifacts and generated/private data
+models/
+data/generated/
+data/private/
+*.bin
+*.pt
+*.safetensors
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
