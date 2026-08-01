@@ -10,9 +10,14 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 
+[project.optional-dependencies]
+baseline = [
+  "torch>=2.2",
+  "transformers>=4.45",
+]
+
 [project.scripts]
 krengjai-validate = "krengjai.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
