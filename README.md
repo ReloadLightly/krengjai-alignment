@@ -37,6 +37,20 @@ python -m unittest discover -s tests -v
 
 The validator reports dataset composition and verifies that every preference pair contains all eight behavioral axes with scores in the allowed range.
 
+## Sprint 1: Typhoon baseline
+
+Sprint 1 compares the released Typhoon2-1B-Instruct model under two controlled conditions: the native model receives only the user prompt, while the prompted condition also receives a compact KrengJAI behavior instruction. This establishes whether later weight updates outperform prompt engineering rather than merely outperforming an intentionally weak baseline.
+
+Install the optional model dependencies and start with one prompt:
+
+```powershell
+python -m pip install -e ".[baseline]"
+python -m krengjai.baseline data/evals/jai_bench_seed.jsonl outputs/native-smoke.jsonl --condition native --limit 1
+python -m krengjai.baseline data/evals/jai_bench_seed.jsonl outputs/spec-smoke.jsonl --condition spec_prompted --limit 1
+```
+
+See the complete [Sprint 1 baseline runbook](docs/sprint1_baseline.md) before running all prompts. Generated outputs are ignored by Git and do not contain the reference preference answers.
+
 ## Behavioral axes
 
 Each candidate response is evaluated from 0 to 4 on:
@@ -78,4 +92,3 @@ The project should eventually be reviewed by multiple native Thai annotators wit
 - Kunat Pipatanakul and Pittawat Taveekitworachai, [Typhoon-S](https://github.com/scb-10x/typhoon-s)
 - Patrick Jory, [*A History of Manners and Civility in Thailand*](https://www.cambridge.org/core/books/history-of-manners-and-civility-in-thailand/71AEC2676F3E2FA29FA57AE936830146)
 - Typhoon AI, [Llama3.2-Typhoon2-1B-Instruct](https://huggingface.co/typhoon-ai/llama3.2-typhoon2-1b-instruct)
-
