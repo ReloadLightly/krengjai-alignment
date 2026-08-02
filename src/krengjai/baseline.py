@@ -148,6 +148,9 @@ def run_baseline(
                 "example_id": example["id"],
                 "category": example["category"],
                 "language": example["language"],
+                "risk_tags": list(example.get("risk_tags", [])),
+                "counterfactual_group": example.get("counterfactual_group"),
+                "counterfactual_variant": example.get("counterfactual_variant"),
                 "condition": condition,
                 "model_id": backend.model_id,
                 "prompt": example["prompt"],
@@ -216,4 +219,3 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

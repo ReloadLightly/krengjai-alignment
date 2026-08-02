@@ -18,6 +18,7 @@ baseline = [
 
 [project.scripts]
 krengjai-validate = "krengjai.cli:main"
+krengjai-review = "krengjai.review:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

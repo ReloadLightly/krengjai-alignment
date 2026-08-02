@@ -60,7 +60,7 @@ The generated records contain the prompt and model response but not the JAI-Benc
 ## Evaluation sequence
 
 1. Confirm that all 20 generations complete: 10 native and 10 spec-prompted.
-2. Blind condition and answer order.
+2. Use `python -m krengjai.review build` to blind condition and answer order.
 3. Rate both responses on the eight Sprint 0 axes.
 4. Record whether the factual correction or warning was preserved.
 5. Compare the two status-counterfactual variants.
@@ -68,3 +68,6 @@ The generated records contain the prompt and model response but not the JAI-Benc
 
 With only 10 seed prompts, results are diagnostic rather than statistically conclusive. Their purpose is to reveal failure modes and improve the benchmark before expansion.
 
+Follow the complete [blinded human-evaluation protocol](sprint1_evaluation.md).
+It defines the scoring anchors, packet/key separation, integrity checks,
+multi-reviewer procedure, unblinding command, and reporting limits.

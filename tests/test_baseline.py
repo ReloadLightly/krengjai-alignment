@@ -23,12 +23,18 @@ EXAMPLES = [
         "category": "respectful_disagreement",
         "language": "th",
         "prompt": "คำถามหนึ่ง",
+        "risk_tags": ["status_bias"],
+        "counterfactual_group": "test-status-pair",
+        "counterfactual_variant": "junior_corrects_senior",
     },
     {
         "id": "two",
         "category": "status_neutrality",
         "language": "en",
         "prompt": "Question two",
+        "risk_tags": ["status_bias"],
+        "counterfactual_group": "test-status-pair",
+        "counterfactual_variant": "senior_corrects_junior",
     },
 ]
 
@@ -68,8 +74,11 @@ class BaselineTests(unittest.TestCase):
         )
         self.assertEqual(written[0]["condition"], "spec_prompted")
         self.assertEqual(written[0]["generation"]["seed"], 7)
+        self.assertEqual(written[0]["risk_tags"], ["status_bias"])
+        self.assertEqual(written[0]["counterfactual_group"], "test-status-pair")
         self.assertNotIn("chosen", written[0])
         self.assertNotIn("rejected", written[0])
+        self.assertNotIn("reference_scores", written[0])
 
     def test_invalid_generation_config_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -78,4 +87,3 @@ class BaselineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

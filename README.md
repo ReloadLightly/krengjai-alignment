@@ -51,6 +51,20 @@ python -m krengjai.baseline data/evals/jai_bench_seed.jsonl outputs/spec-smoke.j
 
 See the complete [Sprint 1 baseline runbook](docs/sprint1_baseline.md) before running all prompts. Generated outputs are ignored by Git and do not contain the reference preference answers.
 
+After generating both conditions, use the
+[blinded human-evaluation protocol](docs/sprint1_evaluation.md) to create an
+anonymous A/B packet and a separate private key:
+
+```powershell
+python -m krengjai.review build outputs/native-seed42.jsonl outputs/spec-seed42.jsonl outputs/review-packet.jsonl outputs/review-key.json --seed 42
+```
+
+The evaluation tooling verifies matched experimental conditions, prevents
+reference-answer leakage, detects edited packet contents, supports multiple
+reviewers, and reports eight-axis, preference, and status-counterfactual
+diagnostics. It does not produce or imply model results until humans complete
+the packet.
+
 ## Behavioral axes
 
 Each candidate response is evaluated from 0 to 4 on:
